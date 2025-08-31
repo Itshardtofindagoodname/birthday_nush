@@ -1,103 +1,135 @@
-import Image from "next/image";
+import CountdownTimer from "@/components/countdown-timer"
+import MemoryGame from "@/components/game-memory"
+import TapHeartGame from "@/components/game-tap-heart"
+import LoveQuiz from "@/components/game-lovely-quiz"
+import HillClimbGame from "@/components/game-hill-climb"
+import StackGame from "@/components/game-stack"
+import TicTacToeGame from "@/components/game-tic-tac-toe"
+import { Button } from "@/components/ui/button"
+import { HeartIcon } from "@/components/heart-icon"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+    <main className="min-h-screen bg-background text-foreground">
+      {/* Header */}
+      <header className="sticky top-0 z-10 bg-background/80 backdrop-blur border-b">
+        <div className="mx-auto max-w-xl px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <HeartIcon className="size-6 text-rose-600" aria-hidden="true" />
+            <span className="font-semibold text-pretty">Countdown for My Girl</span>
+          </div>
+          <a href="#games" className="text-sm text-rose-600 font-medium">
+            Games
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero + Countdown */}
+      <section className="mx-auto max-w-xl px-4 py-8 sm:py-10">
+        <h1 className="text-pretty text-2xl sm:text-3xl font-bold">Counting down to your birthday, my love</h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Timer ends on Sep 9 at 23:59 so we can welcome your Sept 10 birthday right on time.
+        </p>
+
+        <div className="mt-6">
+          <CountdownTimer />
+        </div>
+
+        <div className="mt-6 flex items-center gap-3">
+          <Button className="bg-rose-600 hover:bg-rose-700">
+            <a href="#games">Scroll to games</a>
+          </Button>
+        </div>
+      </section>
+
+      {/* Games */}
+      <section id="games" className="mx-auto max-w-xl px-4 pb-16">
+        <h2 className="text-xl font-semibold text-pretty">Fun little lovely games</h2>
+        <p className="mt-1 text-sm text-muted-foreground">
+          While we wait, play a few sweet games.
+        </p>
+
+        <div className="mt-6 grid grid-cols-1 gap-6">
+          {/* Memory Game */}
+          <div className="rounded-lg border p-4">
+            <h3 className="font-semibold flex items-center gap-2">
+              <HeartIcon className="size-5 text-rose-600" aria-hidden="true" />
+              Memory Match
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">Flip the cards and match the hearts.</p>
+            <div className="mt-4">
+              <MemoryGame />
+            </div>
+          </div>
+
+          {/* Tap Heart */}
+          <div className="rounded-lg border p-4">
+            <h3 className="font-semibold flex items-center gap-2">
+              <HeartIcon className="size-5 text-rose-600" aria-hidden="true" />
+              Tap the Heart
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">Tap as many hearts as you can in 20 seconds.</p>
+            <div className="mt-4">
+              <TapHeartGame />
+            </div>
+          </div>
+
+          {/* Love Quiz */}
+          <div className="rounded-lg border p-4">
+            <h3 className="font-semibold flex items-center gap-2">
+              <HeartIcon className="size-5 text-rose-600" aria-hidden="true" />
+              Little Love Quiz
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">Just for fun: a few questions about us.</p>
+            <div className="mt-4">
+              <LoveQuiz />
+            </div>
+          </div>
+
+          {/* Hill Climb */}
+          <div className="rounded-lg border p-4">
+            <h3 className="font-semibold flex items-center gap-2">
+              <HeartIcon className="size-5 text-rose-600" aria-hidden="true" />
+              Hill Climb
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">Climb as high as you can with love power.</p>
+            <div className="mt-4">
+              <HillClimbGame />
+            </div>
+          </div>
+
+          {/* Stack Game */}
+          <div className="rounded-lg border p-4">
+            <h3 className="font-semibold flex items-center gap-2">
+              <HeartIcon className="size-5 text-rose-600" aria-hidden="true" />
+              Lovely Stacks
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">Stack the blocks neatly to build love towers.</p>
+            <div className="mt-4">
+              <StackGame />
+            </div>
+          </div>
+
+          {/* Tic Tac Toe */}
+          <div className="rounded-lg border p-4">
+            <h3 className="font-semibold flex items-center gap-2">
+              <HeartIcon className="size-5 text-rose-600" aria-hidden="true" />
+              Tic Tac Toe
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">Classic game with a sweet twist.</p>
+            <div className="mt-4">
+              <TicTacToeGame />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t">
+        <div className="mx-auto max-w-xl px-4 py-8 text-center text-sm text-muted-foreground">
+          With all my love — can’t wait for Sept 10.
+        </div>
       </footer>
-    </div>
-  );
+    </main>
+  )
 }
