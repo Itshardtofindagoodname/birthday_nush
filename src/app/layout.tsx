@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "❤️ Birthday Reminder",
+  title: "Birthday Reminder",
   description: "A countdown revealing a bigger secret (maybe?)",
 };
 
