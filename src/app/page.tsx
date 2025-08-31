@@ -16,7 +16,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-xl px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <HeartIcon className="size-6 text-rose-600" aria-hidden="true" />
-            <span className="font-semibold text-pretty">Countdown for My Girl</span>
+            <span className="font-semibold text-pretty">A countdown for your birthday</span>
           </div>
           <a href="#games" className="text-sm text-rose-600 font-medium">
             Games
